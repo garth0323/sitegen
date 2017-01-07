@@ -1,0 +1,118 @@
+
+<nav class="navbar navbar-full navbar-light bg-faded" style="background-color: <%= current_page.sky_navbar_color %>;">
+  <a class="navbar-brand" href="#"><%= current_page.full_name_with_license %></a>
+  <div class="nav navbar-nav float-xs-right">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" aria-controls="exCollapsingNavbar" aria-expanded="false" aria-label="Toggle navigation"></button>
+    <div class="collapse" id="exCollapsingNavbar">
+      <div class="bg-inverse text-muted p-1">
+        <a class="text-muted" href="#contact">Contact</a><br>
+        <a class="text-muted" href="#about">About</a><br>
+        <a class="text-muted" href="#payment">Payment Methods</a>
+        <!-- <span class="text-muted">Toggleable via the navbar brand.</span> -->
+      </div>
+    </div>
+   <!--  <a class="nav-item nav-link" href="#contact">Contact</a>
+    <a class="nav-item nav-link" href="#about">About</a>
+    <a class="nav-item nav-link" href="#payment">Payment</a> -->
+  </div>
+</nav>
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron" style="background-color: <%= current_page.sky_jumbotron_color %>;">
+  <div class="container">
+    <h1 class="display-3"><%= current_page.practice_name %></h1>
+    <p><%= current_page.motto %></p>
+    <p><a class="btn btn-default btn-lg" href="#specialties" role="button" style="color: <%= current_page.sky_button_color %>;"><%= current_page.button_text %> &raquo;</a></p>
+  </div>
+</div>
+
+<div class="container text-center" id="specialties">
+  <h3 class="text-center">Specialties</h3>
+  <div class="row">
+    <% current_page.specialties.each do |spec| %>
+      <div class="col-sm-3">
+        <div class="card card-block">
+          <h4 class="card-title"><%= spec %></h4>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="jumbotron" id="contact" style="background-color: <%= current_page.sky_jumbotron_color %>;">
+  <div class="container">
+    <h3 class="text-center"><%= current_page.contact_title %></h3>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card contact_card">
+          <%= image_tag current_page.contact_image.url(:medium), class: "card-img img-fluid" %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <address>
+          <strong>Physical Address:</strong><br><br>
+          <strong><%= current_page.practice_name %></strong><br>
+          <%= current_page.address %><br>
+          <%= current_page.city %>, <%= current_page.state %> <%= current_page.zip %><br><br>
+          <strong>Contact Info:</strong><br>
+          <abbr title="Phone">P:</abbr> <%= current_page.phone %><br>
+          <% unless current_page.fax == 'none' %>
+            <abbr title="Phone">F:</abbr> <%= current_page.fax %><br>
+          <% end %>
+          <a href="mailto:#"><%= current_page.email %></a>
+        </address>
+      </div>
+      <div class="col-md-4">
+        <address>
+        <strong>Mailing Address:</strong><br><br>
+          <strong><%= current_page.practice_name %></strong><br>
+          <%= current_page.address %><br>
+          <%= current_page.city %>, <%= current_page.state %> <%= current_page.zip %><br>
+        </address>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<div class="container" id="about">
+ <h3 class="text-center"><%= current_page.about_title %></h3>
+ <div class="row">
+  <div class="col-md-7">
+    <p><%= current_page.about_desc %></p>
+  </div>
+  <div class="col-md-4">
+    <div class="card contact_card">
+      <%= image_tag current_page.about_image.url(:medium), class: "card-img img-fluid" %>
+    </div>
+  </div>
+ </div>
+</div>
+
+<div class="jumbotron" id="payment" style="background-color: <%= current_page.sky_jumbotron_color %>;">
+  <div class="container">
+    <h3 class="text-center"><%= current_page.payment_title %></h3>
+    <div class="row">
+      <div class="col-md-6">
+        <ul class="list-group">
+          <% current_page.payment_types.each do |type| %>
+            <li class="list-group-item"><%= type %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <ul class="list-group">
+          <% current_page.insurance_accepted.each do |type| %>
+            <li class="list-group-item"><%= type %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <p><%= current_page.payment_note %></p>
+  </div>
+</div> 
+
+<footer>
+  <div class="container text-center">
+    <p class="text-center">Created by mentalhealthpages.com</p>
+  </div>
+</footer>

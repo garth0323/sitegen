@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="header clearfix">
+    <nav>
+      <ul class="nav nav-pills float-xs-right">
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "About", about_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Payment", payment_path, class: "nav-link active" %>
+        </li>
+      </ul>
+    </nav>
+    <h3 class="text-muted"><%= current_page.full_name_with_license %></h3>
+  </div>
+
+  <p><%= current_page.payment_rate %></p>
+  <p><%= current_page.payment_note %></p>
+
+  <div class="row marketing">
+    <div class="col-lg-6">
+      <h4><%= current_page.payment_title %></h4>
+      <ul class="list-group">
+        <% current_page.payment_types.each do |type| %>
+          <li class="list-group-item"><%= type %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="col-lg-6">
+      <h4>Insurance accepted:</h4>
+      <ul class="list-group">
+        <% current_page.insurance_accepted.each do |type| %>
+          <li class="list-group-item"><%= type %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="text-center">Created by mentalhealthpages.com</p>
+  </footer>
+
+</div> <!-- /container -->

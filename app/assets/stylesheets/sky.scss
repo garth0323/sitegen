@@ -1,0 +1,19 @@
+// Custom bootstrap variables must be set or imported before bootstrap itself.
+@import "bootstrap";
+
+.card {
+  border: 0px;
+}
+
+/*for scrollspy*/
+body {
+  position: relative;
+}
+
+.jumbotron {
+  border-radius: 0;
+}
+
+.contact_card {
+  background: transparent;
+}

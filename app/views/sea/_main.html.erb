@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="header clearfix">
+    <nav>
+      <ul class="nav nav-pills float-xs-right">
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class: "nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "About", about_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Payment", payment_path, class: "nav-link" %>
+        </li>
+      </ul>
+    </nav>
+    <h3 class="text-muted"><%= current_page.full_name_with_license %></h3>
+  </div>
+
+  <div class="jumbotron">
+    <h1 class="display-3"><%= current_page.practice_name %></h1>
+    <p class="lead"><%= current_page.motto %></p>
+    <p><a class="btn btn-lg btn-success" href="#" role="button"><%= current_page.button_text %></a></p>
+  </div>
+
+  <h3 class="text-center"><%= current_page.contact_title %></h3>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card contact_card">
+        <%= image_tag current_page.contact_image.url(:medium), class: "card-img img-fluid" %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <address>
+        <strong>Physical Address:</strong><br><br>
+        <strong><%= current_page.practice_name %></strong><br>
+        <%= current_page.address %><br>
+        <%= current_page.city %>, <%= current_page.state %> <%= current_page.zip %><br><br>
+        <strong>Contact Info:</strong><br>
+        <abbr title="Phone">P:</abbr> <%= current_page.phone %><br>
+        <% unless current_page.fax == 'none' %>
+          <abbr title="Phone">F:</abbr> <%= current_page.fax %><br>
+        <% end %>
+        <a href="mailto:#"><%= current_page.email %></a>
+      </address>
+    </div>
+    <div class="col-md-4">
+      <address>
+      <strong>Mailing Address:</strong><br><br>
+        <strong><%= current_page.practice_name %></strong><br>
+        <%= current_page.address %><br>
+        <%= current_page.city %>, <%= current_page.state %> <%= current_page.zip %><br>
+      </address>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="text-center">Created by mentalhealthpages.com</p>
+  </footer>
+
+</div> <!-- /container -->
